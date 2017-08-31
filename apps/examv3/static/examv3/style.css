@@ -17,3 +17,7 @@ body{
 .register_login{
     background-color: lightblue;
 }
+
+.left{
+    margin-left: 80%;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'examv3/style.css' %}"> 
+    <title>Travels</title>
+</head>
+<body>
+    <a href='/examv3/home'>Home</a>
+    <a href='/examv3/logout'>Logout</a>
+
+    <h2>{{trip.destination}}</h2>
+    Planned By: {{trip.trip_creater.name}}<br>
+    Description: {{trip.description}}<br>
+    Travel Date From: {{trip.travel_date_from}}<br>
+    Travel Date To: {{trip.travel_date_to}}<br><br><br>
+
+    <h2>Other users' joining the trip:</h2>
+        {% for x in trip_joiners %}
+            <p>{{x.name}}</p>
+        {% endfor %}

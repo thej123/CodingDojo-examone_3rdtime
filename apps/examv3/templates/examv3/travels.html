@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'examv3/style.css' %}">
+    <title>Main></title>
+</head>
+<body>
+    <h1> Hello, {{ user.name }}!</h1>
+    {% if messages %} 
+        {% for message in messages %}
+            <h2>{{ message }}</h2>
+        {% endfor %} 
+    {% endif %} 
+    <a class='left' href='/examv3/logout'>Logout</a>
+
+    <h2>Your Trip Schedules</h2>
+    <table style='border:1px solid black'>
+        <tr>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Plan</th>
+        </tr>
+        {% for trip in own_trips %}
+            <tr>
+                <td><a href='/examv3/destination/{{trip.id}}'>{{trip.destination}}</a></td>
+                <td>{{trip.travel_date_from}}</td>
+                <td>{{trip.travel_date_to}}</td>
+                <td>{{trip.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h2>Other User's Travel Plans</h2>
+    <table style='border:1px solid black'>
+        <tr>
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th>Do You Want to Join?</th>
+        </tr>
+        {% for trip in other_trips %}
+            <tr>
+                <td>{{trip.trip_creater.name}}</td>
+                <td><a href='/examv3/destination/{{trip.id}}'>{{trip.destination}}</a></td>
+                <td>{{trip.travel_date_from}}</td>
+                <td>{{trip.travel_date_to}}</td>
+                <td><a href='/examv3/join/{{trip.id}}'>Join</a></td>
+            <tr>
+        {% endfor %}
+    </table><br>
+    <a href='/examv3/travels/add'>Add Travel Plan</a>
+</body>
+</html>
