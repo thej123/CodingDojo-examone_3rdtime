@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main></title>
+</head>
+<body>
+    <h1> Welcome {{ user.name }}!</h1>
+    {% if messages %} 
+        {% for message in messages %}
+            <h2>{{ message }}</h2>
+        {% endfor %} 
+    {% endif %} 
+    <a href='/examv3/logout'>Logout</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body{
+    background-color: lightpink;
+}
+
+.index_forms{
+    display: inline-block;
+    vertical-align: top; 
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.index_forms input{
+    display: block;
+    padding: 2px;
+}
+
+.register_login{
+    background-color: lightblue;
+}
